@@ -6,11 +6,10 @@ import ac.za.cput.repository.FifthPersonPasswordRepository;
 import java.util.HashSet;
 import java.util.Set;
 
-public class FifthPersonPasswordRepositoryImpl implements FifthPersonPasswordRepository<FifthPersonPassword, String> {
+public class FifthPersonPasswordRepositoryImpl implements FifthPersonPasswordRepository{
 
     private static FifthPersonPasswordRepositoryImpl repository = null;
     private Set<FifthPersonPassword> fifthPersonPasswords;
-    //private SecondPerson secondPersons;
 
     private FifthPersonPasswordRepositoryImpl()
     {

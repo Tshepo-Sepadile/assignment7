@@ -3,11 +3,6 @@ import ac.za.cput.domain.Occupation;
 
 import java.util.Set;
 
-public interface OccupationRepository<T, ID> {
-
-    T create(T t);
-    T update(T t);
-    void delete(ID id);
-    T read(ID id);
+public interface OccupationRepository extends IRepository<Occupation, String> {
     Set<Occupation> getAll();
 }

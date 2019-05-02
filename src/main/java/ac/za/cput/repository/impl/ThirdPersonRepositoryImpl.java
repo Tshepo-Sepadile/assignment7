@@ -10,7 +10,6 @@ public class ThirdPersonRepositoryImpl implements ThirdPersonRepository {
 
     private static ThirdPersonRepositoryImpl repository = null;
     private Set<ThirdPerson> thirdPersons;
-    //private SecondPerson secondPersons;
 
     private ThirdPersonRepositoryImpl()
     {
@@ -29,10 +28,9 @@ public class ThirdPersonRepositoryImpl implements ThirdPersonRepository {
         return thirdPerson;
     }
 
-    public ThirdPerson read(String name, String surname)
+    public ThirdPerson read(String personId)
     {
-        this.thirdPersons.contains(name);
-        this.thirdPersons.contains(surname);
+        this.thirdPersons.contains(personId);
         return null;
     }
 
@@ -44,10 +42,9 @@ public class ThirdPersonRepositoryImpl implements ThirdPersonRepository {
         return person;
     }
 
-    public void delete(String name, String surname)
+    public void delete(String personId)
     {
-        this.thirdPersons.remove(name);
-        this.thirdPersons.remove(surname);
+        this.thirdPersons.remove(personId);
     }
 
     public Set<ThirdPerson> getAll()

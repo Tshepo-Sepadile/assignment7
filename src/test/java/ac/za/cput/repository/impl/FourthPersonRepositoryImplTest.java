@@ -24,38 +24,37 @@ public class FourthPersonRepositoryImplTest {
 
     @Test
     public void create() {
-
-
-        this.repository.create(FourthPersonFactory.getFourthPerson("Hnery", "Keown"));
-        Assert.assertEquals( this.repository, this.repository);
+        FourthPerson person = FourthPersonFactory.getPerson("Henry","Keown","00004");
+        repository.create(person);
+        Assert.assertEquals(1, repository.getAll().size());
     }
 
     @Test
     public void read() {
-
-        repository = FourthPersonRepositoryImpl.getRepository();
-
-        repository.read("Henry", "Keown");
-        Assert.assertEquals("Henry", repository);
+        FourthPerson person = FourthPersonFactory.getPerson("Henry", "Keown", "00004");
+        person = repository.create(person);
+        Assert.assertNotNull(person);
 
     }
 
     @Test
     public void update() {
-
-        repository.update(FourthPersonFactory.getFourthPerson("Hnery","Keown"));
-        Assert.assertEquals(null, repository);
+        String personId = "00009";
+        FourthPerson person = FourthPersonFactory.getPerson("Henry", "Keown", personId);
+        person = repository.update(person);
+        Assert.assertEquals("00009", person.personId());
     }
 
     @Test
     public void delete() {
-
-        repository.delete("Henry", "Keown");
-        Assert.assertEquals(null, repository);
+        String personId = "00001";
+        repository.delete(personId);
+        assertNull(repository.read(personId));
     }
 
     @Test
     public void getAll() {
+        //create(); //Comment the create method out when you run all tests at once
         Set<FourthPerson> persons = this.repository.getAll();
         Assert.assertEquals(1, persons.size());
     }

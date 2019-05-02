@@ -10,7 +10,7 @@ public class FourthPersonFactoryTest {
 
     @Test
     public void getFourthPerson() {
-        FourthPerson fourthPerson  = FourthPersonFactory.getFourthPerson("Henry", "Keown");
+        FourthPerson fourthPerson  = FourthPersonFactory.getPerson("Henry", "Keown", "00004");
         Assert.assertEquals("Keown", fourthPerson.personSurname());
     }
 }

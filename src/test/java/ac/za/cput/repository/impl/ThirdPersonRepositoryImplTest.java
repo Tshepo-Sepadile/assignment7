@@ -24,38 +24,37 @@ public class ThirdPersonRepositoryImplTest {
 
     @Test
     public void create() {
-
-
-        this.repository.create(ThirdPersonFactory.getThirdPerson("Nkosinathi", "Sola"));
-        Assert.assertEquals( this.repository, this.repository);
+        ThirdPerson person = ThirdPersonFactory.getPerson("Nkosinathi","Sola","00003");
+        repository.create(person);
+        Assert.assertEquals(1, repository.getAll().size());
     }
 
     @Test
     public void read() {
-
-        repository = ThirdPersonRepositoryImpl.getRepository();
-
-        repository.read("Nkosinathi", "Sola");
-        Assert.assertEquals("Nkosinathi", repository);
+        ThirdPerson person = ThirdPersonFactory.getPerson("Nkosinathi", "Sola", "00003");
+        person = repository.create(person);
+        Assert.assertNotNull(person);
 
     }
 
     @Test
     public void update() {
-
-        repository.update(ThirdPersonFactory.getThirdPerson("Nkosinathi","Sola"));
-        Assert.assertEquals(null, repository);
+        String personId = "00008";
+        ThirdPerson person = ThirdPersonFactory.getPerson("Nkosinathi", "Sola", personId);
+        person = repository.update(person);
+        Assert.assertEquals("00008", person.personId());
     }
 
     @Test
     public void delete() {
-
-        repository.delete("Nkosinathi", "Sola");
-        Assert.assertEquals(null, repository);
+        String personId = "00001";
+        repository.delete(personId);
+        assertNull(repository.read(personId));
     }
 
     @Test
     public void getAll() {
+        //create(); //Comment the create method out when you run all tests at once
         Set<ThirdPerson> persons = this.repository.getAll();
         Assert.assertEquals(1, persons.size());
     }

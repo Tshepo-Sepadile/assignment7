@@ -10,7 +10,6 @@ public class FifthPersonRepositoryImpl implements FifthPersonRepository {
 
     private static FifthPersonRepositoryImpl repository = null;
     private Set<FifthPerson> fifthPersons;
-    //private SecondPerson secondPersons;
 
     private FifthPersonRepositoryImpl()
     {
@@ -29,10 +28,9 @@ public class FifthPersonRepositoryImpl implements FifthPersonRepository {
         return fifthPerson;
     }
 
-    public FifthPerson read(String name, String surname)
+    public FifthPerson read(String personId)
     {
-        this.fifthPersons.contains(name);
-        this.fifthPersons.contains(surname);
+        this.fifthPersons.contains(personId);
         return null;
     }
 
@@ -44,10 +42,9 @@ public class FifthPersonRepositoryImpl implements FifthPersonRepository {
         return person;
     }
 
-    public void delete(String name, String surname)
+    public void delete(String personId)
     {
-        this.fifthPersons.remove(name);
-        this.fifthPersons.remove(surname);
+        this.fifthPersons.remove(personId);
     }
 
     public Set<FifthPerson> getAll()

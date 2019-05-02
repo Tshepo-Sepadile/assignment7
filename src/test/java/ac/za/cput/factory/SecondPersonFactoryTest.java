@@ -10,8 +10,7 @@ public class SecondPersonFactoryTest {
 
         @Test
         public void getSecondPerson() {
-            SecondPerson secondPerson  = SecondPersonFactory.getSecondPerson("Valery", "Burtsev");
-            Assert.assertEquals("Valery", secondPerson.personName());
-            Assert.assertEquals("Burtsev", secondPerson.personSurname());
+            SecondPerson secondPerson = SecondPersonFactory.getPerson("Valery", "Burtsev", "00002");
+            Assert.assertEquals("00002", secondPerson.personId());
         }
 }

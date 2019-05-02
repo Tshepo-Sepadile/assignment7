@@ -6,11 +6,10 @@ import ac.za.cput.repository.PasswordValidationRepository;
 import java.util.HashSet;
 import java.util.Set;
 
-public class PasswordValidationRepositoryImpl implements PasswordValidationRepository<PasswordValidation, String> {
+public class PasswordValidationRepositoryImpl implements PasswordValidationRepository {
 
     private static PasswordValidationRepositoryImpl repository = null;
     private Set<PasswordValidation> passwordValidations;
-    //private SecondPerson secondPersons;
 
     private PasswordValidationRepositoryImpl()
     {

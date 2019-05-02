@@ -24,39 +24,38 @@ public class NameValidationRepositoryImplTest {
 
     @Test
     public void create() {
-
-
-        this.repository.create(NameValidationFactory.getNameValidation("Correct"));
-        Assert.assertEquals( this.repository, this.repository);
+        NameValidation nameValidation = NameValidationFactory.getNameValidation("Correct");
+        repository.create(nameValidation);
+        Assert.assertEquals(1, repository.getAll().size());
     }
 
     @Test
     public void read() {
-
-        repository = NameValidationRepositoryImpl.getRepository();
-
-        repository.read("Tshepo");
-        Assert.assertEquals("Tshepo", repository);
+        NameValidation nameValidation = NameValidationFactory.getNameValidation("Correct");
+        nameValidation = repository.create(nameValidation);
+        Assert.assertNotNull(nameValidation);
 
     }
 
     @Test
     public void update() {
-
-        repository.update(NameValidationFactory.getNameValidation("Correct"));
-        Assert.assertEquals("Correct", repository);
+        String nameVal = "Correct";
+        NameValidation nameValidation = NameValidationFactory.getNameValidation(nameVal);
+        nameValidation = repository.update(nameValidation);
+        Assert.assertEquals("Correct", nameValidation.validateName());
     }
 
     @Test
     public void delete() {
-
-        repository.delete("1016164");
-        Assert.assertEquals("101664", repository);
+        String name = "Correct";
+        repository.delete(name);
+        assertNull(repository.read(name));
     }
 
     @Test
     public void getAll() {
-        Set<NameValidation> nameValidations = this.repository.getAll();
-        Assert.assertEquals(1, nameValidations.size());
+        //create(); //Comment the create method out when you run all tests at once
+        Set<NameValidation> persons = this.repository.getAll();
+        Assert.assertEquals(1, persons.size());
     }
 }

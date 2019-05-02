@@ -6,9 +6,9 @@ import ac.za.cput.repository.OccupationRepository;
 import java.util.HashSet;
 import java.util.Set;
 
-public class OccupationRepositoryImpl implements OccupationRepository<Occupation, String> {
+public class OccupationRepositoryImpl implements OccupationRepository{
 
-    private static OccupationRepositoryImpl repository = null;
+    private static OccupationRepositoryImpl repository = new OccupationRepositoryImpl();
     private Set<Occupation> occupations;
     //private SecondPerson secondPersons;
 

@@ -6,11 +6,10 @@ import ac.za.cput.repository.NameValidationRepository;
 import java.util.HashSet;
 import java.util.Set;
 
-public class NameValidationRepositoryImpl implements NameValidationRepository<NameValidation, String> {
+public class NameValidationRepositoryImpl implements NameValidationRepository{
 
     private static NameValidationRepositoryImpl repository = null;
     private Set<NameValidation> nameValidations;
-    //private SecondPerson secondPersons;
 
     private NameValidationRepositoryImpl()
     {

@@ -3,11 +3,6 @@ import ac.za.cput.domain.PasswordValidation;
 
 import java.util.Set;
 
-public interface PasswordValidationRepository<T, PASSWORD> {
-
-    T create(T t);
-    T update(T t);
-    void delete(PASSWORD password);
-    T read(PASSWORD password);
+public interface PasswordValidationRepository extends IRepository<PasswordValidation, String> {
     Set<PasswordValidation> getAll();
 }

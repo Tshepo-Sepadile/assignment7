@@ -6,11 +6,10 @@ import ac.za.cput.repository.JobRepository;
 import java.util.HashSet;
 import java.util.Set;
 
-public class JobRepositoryImpl implements JobRepository<Job, String> {
+public class JobRepositoryImpl implements JobRepository {
 
     private static JobRepositoryImpl repository = null;
     private Set<Job> jobs;
-    //private SecondPerson secondPersons;
 
     private JobRepositoryImpl()
     {

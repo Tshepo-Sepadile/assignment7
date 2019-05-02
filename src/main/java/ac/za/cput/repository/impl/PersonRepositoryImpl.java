@@ -1,8 +1,6 @@
 package ac.za.cput.repository.impl;
 
 import ac.za.cput.domain.Person;
-import ac.za.cput.factory.PersonFactory;
-import ac.za.cput.factory.PersonPasswordFactory;
 import ac.za.cput.repository.PersonRepository;
 
 import java.util.HashSet;
@@ -20,7 +18,7 @@ public class PersonRepositoryImpl implements PersonRepository {
 
     public static PersonRepository getRepository()
     {
-        if(repository == persons) repository = new PersonRepositoryImpl();
+        if(repository == null) repository = new PersonRepositoryImpl();
         return repository;
     }
 
@@ -30,10 +28,9 @@ public class PersonRepositoryImpl implements PersonRepository {
         return person;
     }
 
-    public Person read(String name, String surname)
+    public Person read(String personId)
     {
-        this.persons.contains(name);
-        this.persons.contains(surname);
+        this.persons.contains(personId);
         return null;
     }
 
@@ -45,10 +42,9 @@ public class PersonRepositoryImpl implements PersonRepository {
         return person;
     }
 
-    public void delete(String name, String surname)
+    public void delete(String personId)
     {
-        this.persons.remove(name);
-        this.persons.remove(surname);
+        this.persons.remove(personId);
     }
 
     public Set<Person> getAll()

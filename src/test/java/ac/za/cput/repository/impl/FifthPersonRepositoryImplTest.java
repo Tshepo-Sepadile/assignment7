@@ -24,38 +24,37 @@ public class FifthPersonRepositoryImplTest {
 
     @Test
     public void create() {
-
-
-        this.repository.create(FifthPersonFactory.getFifthPerson("Tinashe", "Madzimbamuto"));
-        Assert.assertEquals( this.repository, this.repository);
+        FifthPerson person = FifthPersonFactory.getPerson("Tinashe","Madzimbamuto","00005");
+        repository.create(person);
+        Assert.assertEquals(1, repository.getAll().size());
     }
 
     @Test
     public void read() {
-
-        repository = FifthPersonRepositoryImpl.getRepository();
-
-        repository.read("Tinashe", "Madzimbamuto");
-        Assert.assertEquals("Tinashe", repository);
+        FifthPerson person = FifthPersonFactory.getPerson("Tinashe", "Madzimbamuto", "00005");
+        person = repository.create(person);
+        Assert.assertNotNull(person);
 
     }
 
     @Test
     public void update() {
-
-        repository.update(FifthPersonFactory.getFifthPerson("Tinashe","Madzimbamuto"));
-        Assert.assertEquals(null, repository);
+        String personId = "000010";
+        FifthPerson person = FifthPersonFactory.getPerson("Tinashe", "Madzimbamuto", personId);
+        person = repository.update(person);
+        Assert.assertEquals("000010", person.personId());
     }
 
     @Test
     public void delete() {
-
-        repository.delete("Tinashe", "Madzimbamuto");
-        Assert.assertEquals(null, repository);
+        String personId = "00001";
+        repository.delete(personId);
+        assertNull(repository.read(personId));
     }
 
     @Test
     public void getAll() {
+        //create(); //Comment the create method out when you run all tests at once
         Set<FifthPerson> persons = this.repository.getAll();
         Assert.assertEquals(1, persons.size());
     }

@@ -6,6 +6,6 @@ public class NameValidationFactory {
 
     public static NameValidation getNameValidation(String nameVal)
     {
-        return new NameValidation();
+        return new NameValidation.Builder().nameVal(nameVal).build();
     }
 }

@@ -4,10 +4,8 @@ import ac.za.cput.domain.SecondPerson;
 
 public class SecondPersonFactory
 {
-    public static SecondPerson getSecondPerson(String name, String surname) {
-        if((name == "Valery") && (surname == "Burtsev")){
-            return new SecondPerson();
-        }
-        return null;
+    public static SecondPerson getPerson(String name, String surname, String personId) {
+
+        return new SecondPerson.Builder().name(name).surname(surname).personId(personId).build();
     }
 }

@@ -24,39 +24,38 @@ public class JobRepositoryImplTest {
 
     @Test
     public void create() {
-
-
-        this.repository.create(JobFactory.getJob("Developer"));
-        Assert.assertEquals( this.repository, this.repository);
+        Job job = JobFactory.getJob("Web Developer");
+        repository.create(job);
+        Assert.assertEquals(1, repository.getAll().size());
     }
 
     @Test
     public void read() {
-
-        repository = JobRepositoryImpl.getRepository();
-
-        repository.read("12345");
-        Assert.assertEquals("12345", repository);
+        Job job = JobFactory.getJob("Web Developer");
+        job = repository.create(job);
+        Assert.assertNotNull(job);
 
     }
 
     @Test
     public void update() {
-
-        repository.update(JobFactory.getJob("Developer"));
-        Assert.assertEquals("Developer", repository);
+        String jobTitle = "Software Developer";
+        Job job = JobFactory.getJob(jobTitle);
+        job = repository.update(job);
+        Assert.assertEquals("Software Developer", job.myJobTitle());
     }
 
     @Test
     public void delete() {
-
-        repository.delete("12345");
-        Assert.assertEquals("12345", repository);
+        String jobTitle = "Web Developer";
+        repository.delete(jobTitle);
+        assertNull(repository.read(jobTitle));
     }
 
     @Test
     public void getAll() {
-        Set<Job> jobs = this.repository.getAll();
-        Assert.assertEquals(1, jobs.size());
+        //create(); //Comment the create method out when you run all tests at once
+        Set<Job> persons = this.repository.getAll();
+        Assert.assertEquals(1, persons.size());
     }
 }

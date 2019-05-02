@@ -6,6 +6,6 @@ public class PasswordValidationFactory {
 
     public static PasswordValidation getPasswordValidation(String passwordVal)
     {
-        return new PasswordValidation();
+        return new PasswordValidation.Builder().passwordVal(passwordVal).build();
     }
 }

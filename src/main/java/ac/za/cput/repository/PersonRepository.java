@@ -3,7 +3,7 @@ import ac.za.cput.domain.Person;
 
 import java.util.Set;
 
-public interface PersonRepository extends IRepository <Person, String, String> {
+public interface PersonRepository extends IRepository <Person, String> {
 
     Set<Person>getAll();
 

@@ -6,6 +6,6 @@ public class JobFactory {
 
     public static Job getJob(String jobTitle)
     {
-        return new Job();
+        return new Job.Builder().jobTitle(jobTitle).build();
     }
 }
